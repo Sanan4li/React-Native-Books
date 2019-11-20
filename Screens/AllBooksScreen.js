@@ -46,7 +46,17 @@ import BooksList from "./BooksData";
     return (
         <TouchableOpacity onPress={
             ()=>{
-                this.props.navigation.navigate("BooksDetail", {title:book.item.title});
+                this.props.navigation.navigate("BooksDetail", 
+                {
+                    id : book.item.id,
+                    category : book.item.category,
+                    title:book.item.title,
+                    author:book.item.author,
+                    votes: book.item.votes,
+                    rating: book.item.rating,
+                    image : book.item.image
+
+                });
             }
         }>
         <View style={styles.bookMain}>

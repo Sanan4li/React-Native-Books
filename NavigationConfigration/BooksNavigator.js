@@ -105,8 +105,8 @@ const AppNavigator = createStackNavigator({
          
           activeTintColor : "blue",
           inactiveTintColor : "black",
-          tabStyle : {height : 40},
-          labelStyle : {fontSize: 15, paddingTop:5, fontFamily : "halfmoon_bold",},
+          tabStyle : {height : 50 , zIndex:99,},
+          labelStyle : {fontSize: 15, paddingTop:2,paddingBottom:3, fontFamily : "halfmoon_bold",},
       }
   }
   
