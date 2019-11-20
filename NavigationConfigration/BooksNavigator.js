@@ -1,5 +1,6 @@
 import React from "react";
 import { createAppContainer } from 'react-navigation';
+import {createDrawerNavigator } from "react-navigation-drawer";
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import CategoriesScreen from '../Screens/CategoriesScreen';
@@ -8,23 +9,8 @@ import BooksDetailScreen from '../Screens/BooksDetailScreen';
 import FavScreen from '../Screens/FavScreen';
 import AllBooksScreen from '../Screens/AllBooksScreen';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import IconAgain from 'react-native-vector-icons/SimpleLineIcons';
-const AppNavigator = createStackNavigator({
-    Categories: {
-      screen: CategoriesScreen,
-      navigationOptions : {
-        headerTitle : "Books Categories",
-      }
 
-    },
-    Books : {
-        screen : BooksScreen,
-      
-    },
-    BooksDetail : {
-        screen : BooksDetailScreen
-    }
-  }, {
+const defaultOptionsForStack =  {
     defaultNavigationOptions: {
        
     headerStyle: {
@@ -39,10 +25,54 @@ const AppNavigator = createStackNavigator({
     }
 }   
       
-  }
+  };
+const AppNavigator = createStackNavigator({
+    Categories: {
+      screen: CategoriesScreen,
+    },
+    Books : {
+        screen : BooksScreen,
+    },
+    
+    BooksDetail : {
+        screen : BooksDetailScreen,
+        
+    }
+  }, 
+      
+  defaultOptionsForStack
   
   
   );
+
+  const FavStack = createStackNavigator({
+      Favourites : {
+          screen : FavScreen
+      },
+      BooksDetail : {
+          screen : BooksDetailScreen
+      },
+       Categories : {
+        screen : CategoriesScreen
+    }
+
+  }, defaultOptionsForStack
+  
+  );
+  const AllBooksStack = createStackNavigator({
+    Favourites : {
+        screen : AllBooksScreen
+    },
+    BooksDetail : {
+        screen : BooksDetailScreen
+    },
+    Categories : {
+        screen : CategoriesScreen
+    }
+
+}, defaultOptionsForStack
+
+);
 
   const TabNavigator = createBottomTabNavigator({
     Categories: {
@@ -55,7 +85,7 @@ const AppNavigator = createStackNavigator({
             }
     },
     Books : {
-        screen : AllBooksScreen,
+        screen : AllBooksStack,
         navigationOptions : {
             tabBarIcon: ({ tintColor }) => {
                 return   <Icon name="book" size={25} color={tintColor} />
@@ -63,7 +93,7 @@ const AppNavigator = createStackNavigator({
         }
     },   
     Favourites: {
-    screen :  FavScreen,
+    screen :  FavStack,
         navigationOptions : {
             tabBarIcon: ({ tintColor }) => {
                 return   <Icon name="star" size={25} color={tintColor} />
@@ -84,7 +114,15 @@ const AppNavigator = createStackNavigator({
   );
 
 
-const AppContainer = createAppContainer(TabNavigator)
+  const Drawer = createDrawerNavigator({
+        Categories : TabNavigator,
+        Books : AllBooksStack,
+        Favourites : FavStack,
+      
+  })
+
+
+const AppContainer = createAppContainer(Drawer)
 
 export default AppContainer ;
 

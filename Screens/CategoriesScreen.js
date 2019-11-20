@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text , TouchableOpacity , FlatList } from "react-native";
-//import {  } from 'react-native-gesture-handler';
+import {HeaderButtons , Item} from "react-navigation-header-buttons";
+import MyHeaderButton from "./MyHeaderButton";
  class CategoriesScreen extends Component {
-
+    static navigationOptions = ({ navigation }) => {
+        return {
+          title: "Categories",
+          headerLeft : <HeaderButtons HeaderButtonComponent={MyHeaderButton}>
+              <Item title="Menu" iconName="bars" onPress={
+                  ()=>{
+                    navigation.openDrawer()
+                  }
+              } style={{color:"black"}} />
+          </HeaderButtons>
+        };
+      };
         
     
     state = {
