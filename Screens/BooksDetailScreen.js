@@ -93,11 +93,11 @@ const styles = StyleSheet.create({
         width: 30,
       },
       defaultText:{
-        fontSize : 20,
+        fontSize : 15,
       },
       propText: {
         fontFamily : "halfmoon_bold",
-        fontSize : 18,
+        fontSize : 15,
       }
 
 });

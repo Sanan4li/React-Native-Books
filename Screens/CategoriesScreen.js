@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
                 padding : 15,
     },
     text : {
-        fontSize : 20,
+        fontSize : 15,
         fontFamily : "halfmoon_bold",
         alignContent : "flex-end",
 

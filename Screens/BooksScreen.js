@@ -52,7 +52,7 @@ import MyHeaderButton from "./MyHeaderButton";
                     }
                 }>
                 <View style={styles.bookMain}>
-                <View style={{width:"100%",overflow:"hidden", height:450, }}>
+                <View style={{width:"100%",overflow:"hidden", height:452, }}>
                 <Image style={{width : "100%" , height:"100%"}} 
                     source={{uri : book.item.image}} />
                  </View>
@@ -103,12 +103,13 @@ const styles = StyleSheet.create({
         alignItems : "flex-end",
         overflow:"hidden",
         paddingVertical: 14, 
-        borderRadius:5
+        borderRadius:5,
+        
     },
     text : {
         color:"black",
         fontFamily : "halfmoon_bold",
-        fontSize: 19,
+        fontSize: 15,
     }
 });
 
