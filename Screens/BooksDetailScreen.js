@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text , ScrollView } from "react-native";
 import { HeaderButtons , Item } from "react-navigation-header-buttons";
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import MyHeaderButton from "./MyHeaderButton";
 import FitImage from 'react-native-fit-image';
 import { Rating, AirbnbRating } from 'react-native-ratings';
